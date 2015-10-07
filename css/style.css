@@ -1,0 +1,250 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,900);
+* {
+  box-sizing: inherit;
+  -webkit-transition-property: all;
+          transition-property: all;
+  -webkit-transition-duration: .6s;
+          transition-duration: .6s;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+}
+
+html,
+body {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  
+  background-image: url("http://wallzoa.com/wp-content/uploads/2013/04/pokemon-wallpaper-for-computer.jpg");
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  -moz-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.buttons {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  display: table-cell;
+  padding: 1em;
+  text-align: center;
+  vertical-align: middle;
+}
+
+h1 {
+  font-family: Arial;
+  color: #ffcc03;
+  font-size: 1.25em;
+  font-weight: 900;
+  margin: 0 0 4em 7em;
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: #3a5aa5;
+}
+@media (min-width: 450px) {
+  h1 {
+    font-size: 1.75em;
+  }
+}
+@media (min-width: 760px) {
+  h1 {
+    font-size: 3.25em;
+  }
+}
+@media (min-width: 900px) {
+  h1 {
+    font-size: 5.25em;
+    margin: 0 0 3.5em 8em;
+  }
+}
+
+p {
+  color: #fff;
+  font-size: 12px;
+  margin-top: 4em;
+}
+@media (min-width: 600px) {
+  p {
+    left: 50%;
+    position: absolute;
+    -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+    top: 90%;
+  }
+}
+@media (max-height: 500px) {
+  p {
+    left: 0;
+    position: relative;
+    top: 0;
+    -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+p a {
+  background: rgba(255, 255, 255, 0);
+  border-bottom: 1px solid;
+  color: #fff;
+  line-height: 1.4;
+  padding: .25em;
+  text-decoration: none;
+}
+p a:hover {
+  background: white;
+  color: #E1332D;
+}
+
+.btn {
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 45px;
+  margin: 1px auto 0em;
+  max-width: 160px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  width: 100%;
+}
+@media (min-width: 400px) {
+  .btn {
+    display: inline-block;
+    margin-right: 2.5em;
+  }
+  .btn:nth-of-type(even) {
+    margin-right: 0;
+  }
+}
+@media (min-width: 600px) {
+  .btn:nth-of-type(even) {
+    margin-right: 2.5em;
+  }
+  .btn:nth-of-type(5) {
+    margin-right: 0;
+  }
+}
+.btn:hover {
+  text-decoration: none;
+}
+
+
+.btn-home {
+  background: #313131;
+  border: 1px solid #313130;
+  box-shadow: 0px 6px 0 #3d58a5;
+  font-weight: 900;
+  letter-spacing: 1px;
+  -webkit-transition: all 150ms linear;
+          transition: all 150ms linear;
+}
+
+.btn-home:hover {
+  background: #3d58a5;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-transition: all 250ms linear;
+          transition: all 250ms linear;
+}
+
+.btn-about {
+  background: #313131;
+  border: 1px solid #313130;
+  box-shadow: 0px 6px 0 #e3350d;
+  font-weight: 900;
+  letter-spacing: 1px;
+  -webkit-transition: all 150ms linear;
+          transition: all 150ms linear;
+}
+
+.btn-about:hover {
+  background: #e3350d;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-transition: all 250ms linear;
+          transition: all 250ms linear;
+}
+.btn-how {
+  background: #313131;
+  border: 1px solid #313130;
+  box-shadow: 0px 6px 0 #e6bc2f;
+  font-weight: 900;
+  letter-spacing: 1px;
+  -webkit-transition: all 150ms linear;
+          transition: all 150ms linear;
+}
+
+.btn-how:hover {
+  background: #e6bc2f;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-transition: all 250ms linear;
+          transition: all 250ms linear;
+}
+.btn-option {
+  background: #313131;
+  border: 1px solid #313130;
+  box-shadow: 0px 6px 0 #4dad5b;
+  font-weight: 900;
+  letter-spacing: 1px;
+  -webkit-transition: all 150ms linear;
+          transition: all 150ms linear;
+}
+
+.btn-option:hover {
+  background: #4dad5b;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-transition: all 250ms linear;
+          transition: all 250ms linear;
+}
+
+.btn-play {
+  background: #000000;
+  padding: 10px;
+  font-size: 20px;
+  height: 60px;
+  width: 160px;
+  font-weight: 900;
+  border: 0 solid;
+  box-shadow: inset 0 0 20px rgba(252, 245, 178, 0);
+  outline: 1px solid;
+  outline-color: rgba(252, 245, 178, 0.5);
+  outline-offset: 0px;
+  text-shadow: none;
+  -webkit-transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+          transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.btn-play:hover {
+  background: #000000;
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(252, 245, 178, 0.5), 0 0 20px rgba(252, 245, 178, 0.5);
+  outline-color: rgba(0, 0, 0, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #fcf5b2;
+}
