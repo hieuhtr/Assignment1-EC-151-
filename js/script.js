@@ -469,18 +469,38 @@ $(document).ready(function(){
             element.parentNode.removeChild(element);
         },true);
         document.getElementById('shareBtn').addEventListener('click',function(){
-            FB.api(
-                '/me/feed', 
-                'post',
-                {message: "I've reached "+score+" in Snake game. Play with me at: http://snake-game.co.nr/"},
-                function(response){
-                    console.log(response);
-                    if (!response || response.error) {
-                        alert('You must login to share this game with your friends');
-                    } 
-                    else {
-                        alert('Successful!');
-                    }
+            FB.getLoginStatus(function(response){
+                if(response.status == 'connected'){
+                    FB.api(
+                        '/me/feed', 
+                        'post',
+                        {message: "I've reached "+score+" in Snake game. Play with me at: http://snake-game.co.nr/"},
+                        function(response){
+                            console.log(response);
+                            if (!response || response.error) {
+                                alert('You must login to share this game with your friends');
+                            } 
+                            else {
+                                alert('Successful!');
+                            }
+                    });
+                }
+                else{
+                    FB.login();
+                    FB.api(
+                        '/me/feed', 
+                        'post',
+                        {message: "I've reached "+score+" in Snake game. Play with me at: http://snake-game.co.nr/"},
+                        function(response){
+                            console.log(response);
+                            if (!response || response.error) {
+                                alert('You must login to share this game with your friends');
+                            } 
+                            else {
+                                alert('Successful!');
+                            }
+                    });
+                }
             });
         });
     });
