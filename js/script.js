@@ -478,7 +478,7 @@ $(document).ready(function(){
                         function(response){
                             console.log(response);
                             if (!response || response.error) {
-                                alert('You must login to share this game with your friends');
+                                alert('An error occurred');
                             } 
                             else {
                                 alert('Successful!');
