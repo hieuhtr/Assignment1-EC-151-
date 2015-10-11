@@ -45,12 +45,12 @@ body {
 
 h1 {
   font-family: Arial;
-  color: #ffcc03;
+  color: #000000;
   font-size: 1.25em;
   font-weight: 900;
-  margin: 0 0 4em 7em;
+  margin: 0 0 2em 0em;
   -webkit-text-stroke-width: 4px;
-  -webkit-text-stroke-color: #3a5aa5;
+  -webkit-text-stroke-color: #ffffff;
 }
 @media (min-width: 450px) {
   h1 {
@@ -65,7 +65,7 @@ h1 {
 @media (min-width: 900px) {
   h1 {
     font-size: 5.25em;
-    margin: 0 0 3.5em 0;
+    margin: 1em 0 2em 0em;
   }
 }
 
