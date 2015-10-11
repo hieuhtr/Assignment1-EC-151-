@@ -18,7 +18,7 @@ body {
 
 body {
   
-  background-image: url("http://wallzoa.com/wp-content/uploads/2013/04/pokemon-wallpaper-for-computer.jpg");
+  background-image: url("http://www.magic4walls.com/wp-content/uploads/2014/03/snake-minimalist-art-funny-green-background-hd-wallpaper.jpg");
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   text-align: center;
@@ -65,7 +65,7 @@ h1 {
 @media (min-width: 900px) {
   h1 {
     font-size: 5.25em;
-    margin: 0 0 3.5em 8em;
+    margin: 0 0 3.5em 0;
   }
 }
 
