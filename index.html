@@ -17,24 +17,23 @@
 
   <body>
     <div id="fb-root"></div>
-    <script>(
-      function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=992532850788565";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
+
     <section class="buttons">
       <div class="container">
         <h1>Catch you!</h1>
         
-        <a href="#" class="btn btn-home">Home</a> 
-        
-        <a href="https://www.facebook.com/" class="btn btn-about" target="_blank">About</a> 
+        <a  class="btn button button-about" data-toggle="modal" data-target="#AboutModal">About</a>
+        <div class="modal fade bs-example-modal-sm" id="AboutModal" role="dialog"  tabindex="-1">
+          <div class="test">
+            <div class="tmem"><span class="memtext">Huynh Trung Hieu <br> 51201234</span></div>
+            <div class="tmem"><span class="memtext">Nguyen Duc Hoan <br> 51201191</span></div>
+            <div class="tmem"><span class="memtext">Nguyen Quang Hieu <br> 51203215</span></div>
+            <div class="tmem"><span class="memtext">Truong Trieu Hai <br> 51201234</span></div>
+            <div id="foo">H5 Team</div>
+          </div> 
+        </div> 
 
-        <a  class="btn btn-play" data-toggle="modal" data-target="#gameModal">Play</a>
+        <a  class="btn button button-play" data-toggle="modal" data-target="#gameModal">Play</a>
 
             <div class="modal fade bs-example-modal-sm" id="gameModal" role="dialog"  tabindex="-1">
               <div class="modal-dialog bs-example-modal-sm" role = "document">
@@ -49,25 +48,35 @@
                             <div id="score">Score: 0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Level: 1</div>
                             <canvas width="300" height="400" id="canvas">
                             </canvas>
-                            <div id="control">Controls: W = Up; A = Left; S = Down; D = Right</div>
+                            <div id="control">Controls: W/&uarr; = Up; A/&larr; = Left; S/&darr; = Down; D/&rarr; = Right</div>
                         </div>
                       <div class="col-md-5">
-                        <button class = "row col-md-12" id="playBtn">&#9658</button>
-                        <button class = "row col-md-12" onclick="setStage(0)">Level 0</button>
-                        <button class = "row col-md-12" onclick="setStage(1)">Level 1</button>
-                        <button class = "row col-md-12" onclick="setStage(2)">Level 2</button>
+                        <div class="stagebtn">
+                        <button class = "btn col-md-12" onclick="setStage(0)" id="stage0">Stage 0</button>
+                        <button class = "btn col-md-12" onclick="setStage(1)" id="stage1">Stage 1</button>
+                        <button class = "btn col-md-12" onclick="setStage(2)" id="stage2">Stage 2</button>
                         <div class="fb-like row col-md-12" data-share="true" data-width="450" data-show-faces="true"></div>
-
+                        <button class="btn btn-success" id="shareBtn">SHARE</button>
+                        <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="true" data-auto-logout-link="false" data-scope="publish_actions"></div>
+                        </div>
+                        </div>
                       </div>
                     </div>
+                    <button class = "btn btn-primary" id="playBtn">&#9658</button>
                   </div>
                 </div>
               </div>
+          
+
+        <a  class="btn button button-how" data-toggle="modal" data-target="#howToPlayModal">How to Play</a>
+        <div class="modal fade bs-example-modal-sm" id="howToPlayModal" role="dialog"  tabindex="-1">
+          <div id="waytoplay"> 
+            </br>
+            Nhiệm vụ của bạn là điều khiển chú rắn kiếm thật nhiều đồ ăn </br>
+            Sử dụng các phím mũi tên để di chuyển chú rắn đến vị trí con mồi </br>
+            Bạn có thể chọn các màn chơi khác nhau để chọn độ khó cho game </br>
             </div>
-
-        <a href="https://www.facebook.com/" class="btn btn-how" target="_blank">How to play</a> 
-
-        <a href="https://www.facebook.com/" class="btn btn-option" target="_blank">Option</a> 
+          </div> 
 
         <p>Share with <a href="https://www.facebook.com/choutruong" target="_blank">Facebook</a></p>
       </div>

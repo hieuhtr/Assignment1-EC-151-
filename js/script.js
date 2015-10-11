@@ -108,6 +108,8 @@ function restart()
     controlDiv.innerHTML = "Controls: W = Up; A = Left; S = Down; D = Right";
     clearTimeout(intervalId);
     intervalId = setTimeout(gameProcess, 1000/6);
+    var element = document.getElementById('playBtn');
+    element.parentNode.removeChild(element);
     
 }
 
@@ -119,22 +121,22 @@ function restart()
  * ************************** */
 function keydown(e)
 {
-    if(e.keyCode == 37 && vX[0] != 1)       //left arrow - Changed to 'a'
+    if((e.keyCode == 37 || e.keyCode == 65) && vX[0] != 1)       //left arrow - Changed to 'a'
     {
         vX[0] = -1;
         vY[0] = 0;
     }
-    else if (e.keyCode == 38 && vY[0] != 1) //up arrow - changed to 'w'
+    else if ((e.keyCode == 38 || e.keyCode == 87) && vY[0] != 1) //up arrow - changed to 'w'
     {
         vY[0] = -1;
         vX[0] = 0;
     }
-    else if (e.keyCode == 39 && vX[0] != -1) //right arrow - changed to 'd'
+    else if ((e.keyCode == 39 || e.keyCode == 68) && vX[0] != -1) //right arrow - changed to 'd'
     {
         vX[0] = 1;
         vY[0] = 0;
     }
-    else if (e.keyCode == 40 && vY[0] != -1) //down arrow - changed to 's'
+    else if ((e.keyCode == 40 || e.keyCode == 83) && vY[0] != -1) //down arrow - changed to 's'
     {
         vY[0] = 1;
         vX[0] = 0;
@@ -184,6 +186,7 @@ function drawPoint(x,y)
 //draw wall
 function setStage(st){
     stage = st;
+    restart();
 }
 
 function drawWall(){
@@ -217,6 +220,22 @@ function drawSnake()
         drawPoint(bodyX[i],bodyY[i]);
 }
 
+
+
+//Redraw playBtn
+function reDrawPlayBtn(){
+    var element = document.getElementsByClassName('modal-body')[0];
+    var node = document.createElement('button');
+    node.setAttribute('class', 'btn btn-primary');
+    node.setAttribute('id', 'playBtn');
+    node.innerHTML = '&#9658';
+    element.appendChild(node);
+    document.getElementById("playBtn").addEventListener("click",function(){
+            restart();
+            var element = document.getElementById('playBtn');
+            element.parentNode.removeChild(element);
+    },true);
+}
 /* *************************** /
  * Checks snake colliding with the boundary walls
  * Snake can collide with itself only if its length is 5
@@ -230,6 +249,7 @@ function checkCollision()
         controlDiv.innerHTML = "Press \"Enter\" to restart"; 
         gameOver = true;
         clearTimeout(intervalId);
+        reDrawPlayBtn();
     }
     else if(snakeLength > 4)
         {
@@ -239,13 +259,15 @@ function checkCollision()
                 controlDiv.innerHTML = "Press \"Enter\" to restart";
                 gameOver = true;
                 clearTimeout(intervalId);
+                reDrawPlayBtn();
             }
         }
     if(checkSnakeHitWall(bodyX[0], bodyY[0])){
         scoreDiv.innerHTML = "Score: " +score+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Level: "+level+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Game Over</b>";
         controlDiv.innerHTML = "Press \"Enter\" to restart";
         gameOver = true;
-        clearTimeout(intervalId);   
+        clearTimeout(intervalId);
+        reDrawPlayBtn();  
     }
 }
 
@@ -441,6 +463,35 @@ function gameProcess()
 
 $(document).ready(function(){
     $("#gameModal").on('shown.bs.modal', function(){
-        document.getElementById("playBtn").addEventListener("click",init,true);
+        document.getElementById("playBtn").addEventListener("click",function(){
+            init();
+            var element = document.getElementById('playBtn');
+            element.parentNode.removeChild(element);
+        },true);
+        document.getElementById('shareBtn').addEventListener('click',function(){
+            FB.api(
+                '/me/feed', 
+                'post',
+                {message: "test ec151"},
+                function(response){
+                    console.log(response);
+                    if (!response || response.error) {
+                        alert('Error occured');
+                    } 
+                    else {
+                        alert('Post ID: ' + response.id);
+                    }
+            });
+        });
     });
 });
+
+
+//load FB API
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=992532850788565";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
