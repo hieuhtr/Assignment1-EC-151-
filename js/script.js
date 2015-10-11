@@ -472,14 +472,14 @@ $(document).ready(function(){
             FB.api(
                 '/me/feed', 
                 'post',
-                {message: "test ec151"},
+                {message: "I've reached "+score+" in Snake game. Play with me at: http://snake-game.co.nr/"},
                 function(response){
                     console.log(response);
                     if (!response || response.error) {
-                        alert('Error occured');
+                        alert('You must login to share this game with your friends');
                     } 
                     else {
-                        alert('Post ID: ' + response.id);
+                        alert('Successful!');
                     }
             });
         });
