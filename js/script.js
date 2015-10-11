@@ -241,7 +241,7 @@ function checkCollision()
                 clearTimeout(intervalId);
             }
         }
-    else if(checkSnakeHitWall(bodyX[0], bodyY[0])){
+    if(checkSnakeHitWall(bodyX[0], bodyY[0])){
         scoreDiv.innerHTML = "Score: " +score+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Level: "+level+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Game Over</b>";
         controlDiv.innerHTML = "Press \"Enter\" to restart";
         gameOver = true;
@@ -267,21 +267,28 @@ function checkSelfCollision(x, y)
 function checkSnakeHitWall(x,y){
     switch(stage){
         case 1:
-            if (x >= wall1X && x <= (wall1X + wallWidth))
-                if (y >= wall1Y && y <= (wall1Y + wallHeight)){
+            if (x >= wall1X && x < (wall1X + wallWidth)){
+                if (y >= wall1Y && y < (wall1Y + wallHeight)){
                     return true;
                 }
+                else return false;
+            }
+            else return false;
             break;
         case 2:
-            if (x >= wall1X && x <= (wall1X + wallWidth)){
-                if (y >= wall1Y && y <= (wall1Y + wallHeight)){
+            if (x >= wall1X && x < (wall1X + wallWidth)){
+                if (y >= wall1Y && y < (wall1Y + wallHeight)){
                     return true;
                 }
+                else return false;
             }
-            else if (x >= wall2X && x <= (wall2X + wallWidth))
-                if (y >= wall2Y && y <= (wall2Y + wallHeight)){
+            else if (x >= wall2X && x < (wall2X + wallWidth)){
+                if (y >= wall2Y && y < (wall2Y + wallHeight)){
                     return true;
                 }
+                else return false;
+            }
+            else return false;
             break;
         default:
             return false;
