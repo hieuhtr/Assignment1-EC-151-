@@ -24,7 +24,10 @@
       <div class="container">
         <h1>Snake Game</h1>
 
-
+<<<<<<< HEAD
+=======
+        <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true" data-scope="publish_actions"></div>
+>>>>>>> a3ef767409c4e2e85d99ee4047655086514710d2
 
         <a  class="btn button button-about" data-toggle="modal" data-target="#AboutModal">About</a>
         <div class="modal fade bs-example-modal-sm" id="AboutModal" role="dialog"  tabindex="-1">
@@ -60,7 +63,11 @@
                         <button class = "btn col-md-12" onclick="setStage(1)" id="stage1">Stage 1</button>
                         <button class = "btn col-md-12" onclick="setStage(2)" id="stage2">Stage 2</button>
                         <div class="shareFB">
+<<<<<<< HEAD
                         <div id="shareBtn"><button class="btn btn-success btn-info" >SHARE SCORE</button></div>
+=======
+                        <div><button class="btn btn-success" id="shareBtn">SHARE</button></div>
+>>>>>>> a3ef767409c4e2e85d99ee4047655086514710d2
                         </div>
                         </div>
                         </div>
@@ -82,12 +89,18 @@
             </div>
           </div> 
 
+<<<<<<< HEAD
         <p>Share with <a href="https://www.facebook.com/dialog/feed?
   app_id=992532850788565
   &link=http://snake-game.co.nr
   &redirect_uri=http://hieubkcse.github.io/Assignment1-EC-151-/" target="_blank">Facebook</a></p>
       </div>
       <!-- <div class="fb-like row col-md-12" data-share="true" data-width="450" data-show-faces="true"></div>  -->
+=======
+        <p>Share with <a href="https://www.facebook.com" target="_blank">Facebook</a></p>
+      </div>
+      <div class="fb-like row col-md-12" data-share="true" data-width="450" data-show-faces="true"></div>
+>>>>>>> a3ef767409c4e2e85d99ee4047655086514710d2
 
     </section>
   </body>
