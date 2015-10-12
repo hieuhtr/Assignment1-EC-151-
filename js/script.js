@@ -460,7 +460,7 @@ $(document).ready(function(){
                     });
                 }
                 else{
-                    FB.login();
+                    FB.login(function(response){},{scope: 'publish_actions'});
                 }
             });
         });
