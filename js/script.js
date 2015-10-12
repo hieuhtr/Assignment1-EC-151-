@@ -1,21 +1,19 @@
 //global constants
-var context;                // Variable to hold the entire game context
-
-//specifying the width and height of our game area, we'll use the complete canvas in this case
+var context;                
 var width = 300;
 var height = 400;
 
-//specify the initial game configuration
-var snakeLength = 3;        // initial length of snake is set to 3
-var level = 1;              // start from level 1
-var sqSize = 10; //khoi cua snake           // step size is 10px. Also size of single body unit
+
+var snakeLength = 3;        
+var level = 1;              
+var sqSize = 10;
 
 /* *************************** /
  * specify the initial snake alignment and direction of movement
  * Snake is starts horizontal moving towards its right
  * *************************** */
-var bodyX = new Array(150, 150-sqSize, 150-2*sqSize); //vi tri ban dau cua snake  //array to manage X coordinates for snake body
-var bodyY = new Array(200, 200, 200);                   //array to manage Y coordinates for snake body
+var bodyX = new Array(150, 150-sqSize, 150-2*sqSize); 
+var bodyY = new Array(200, 200, 200);                   
 
 var vX = new Array(1, 1, 1);    //array to manage horizontal velocity for snake body
 var vY = new Array(0, 0, 0);    //array to manage vertical velocity for snake body
@@ -51,14 +49,13 @@ var stage = 0;
  * *************************** */
 function init()
 {
-    // Get game context
+    
     context = document.getElementById("canvas").getContext("2d");
     
     //make play button became restart button
     document.getElementById("playBtn").removeEventListener("click",init,true);
     document.getElementById("playBtn").addEventListener("click",restart,true);
 
-    //draws the canvas
     drawCanvasBoundary();
     
     //draws snake
@@ -77,10 +74,7 @@ function init()
     window.onkeydown = keydown;
 }
 
-/* *************************** /
- * Clears the canvas to empty for redrawing
- * not an ideal way but then this is a HTML5 Games 101
- * ************************** */
+
 function clear()
 {
     context.clearRect(0,0,width,height);
@@ -113,12 +107,7 @@ function restart()
     
 }
 
-/* *************************** /
- * Handles keyboard events to control snake
- * It only acknowledges the arrow keys and ignores the remaining
- * Calculate the new valid direction for snake head
- * for instance - if snake is moving right, it cannot move left even if left arrow is pressed
- * ************************** */
+
 function keydown(e)
 {
     if((e.keyCode == 37 || e.keyCode == 65) && vX[0] != 1)       //left arrow - Changed to 'a'
@@ -148,10 +137,7 @@ function keydown(e)
     }
 }
 
-/* *************************** /
- * Initially it was meant to mark the canvas boundary
- * but this take the background color of the page (black for my blog) so now am filling canvas white
- * ************************** */
+
 function drawCanvasBoundary()
 {
     context.fillStyle="#19DB5A";           //set canvas color to be white
@@ -167,10 +153,7 @@ function drawCanvasBoundary()
     /* */
 }
 
-/* *************************** /
- * Draws each body part of the snake
- * x, y = provides the body position
- * ************************** */
+
 function drawPoint(x,y)
 {
     // First draw a square for size "sqSize" filled with black
@@ -211,9 +194,7 @@ function drawWall(){
     }
 }
 
-/* *************************** /
- * Draws snake by calling the helper drawPoint function
- * ************************** */
+
 function drawSnake()
 {
     for(var i=0; i < snakeLength; i++)
@@ -236,11 +217,7 @@ function reDrawPlayBtn(){
             element.parentNode.removeChild(element);
     },true);
 }
-/* *************************** /
- * Checks snake colliding with the boundary walls
- * Snake can collide with itself only if its length is 5
- * else if condition checks for snake length and calls for self collision check
- * ************************** */
+
 function checkCollision()
 {
     if(bodyX[0] >= width || bodyX[0] < 0 || bodyY[0] < 0 || bodyY[0] >= height)
@@ -271,10 +248,7 @@ function checkCollision()
     }
 }
 
-/* *************************** /
- * Iterates through all body parts starting from 5
- * and compares their x & y coordinates with that of head sent as the parameter(x & y)
- * ************************** */
+
 function checkSelfCollision(x, y)
 {
     for (var i = 4; i < snakeLength; i++)
@@ -474,7 +448,7 @@ $(document).ready(function(){
                     FB.api(
                         '/me/feed', 
                         'post',
-                        {message: "I've reached "+score+" in Snake game. Play with me at: http://snake-game.co.nr/"},
+                        {message: "I've reached "+score+" point in Snake game. Play with me at: http://snake-game.co.nr/"},
                         function(response){
                             console.log(response);
                             if (!response || response.error) {

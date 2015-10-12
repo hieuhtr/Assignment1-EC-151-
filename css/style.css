@@ -374,9 +374,20 @@ p a:hover {
 
 .stagebtn{
   position:  relative;
-  padding-top: 25%
+  padding-top: 25%;
 }
 
 .shareFB{
   display: inline-block;
+}
+
+#loginfb{
+  position: fixed;
+  padding-top: 5px;
+  padding-left: 85%;
+}
+
+#shareBtn{
+  position: relative;
+  padding-top: 5em;
 }
